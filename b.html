@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Fresh Grocery Store</title>
+
+<style>
+body {
+  margin: 0;
+  font-family: Arial;
+  background-image: url(veg1.avif);
+  background-size: cover;
+}
+
+.overlay {
+  background: rgba(0,0,0,0.6);
+  min-height: 100vh;
+}
+
+header {
+  background: rgba(4, 112, 7, 0.9);
+  color:blue;
+  padding: 20px;
+  text-align: center;
+  font-weight: 700;
+  font-style: italic;
+
+}
+
+.container {
+  width: 90%;
+  margin: auto;
+  padding: 20px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px,1fr));
+  gap: 10px;
+}
+button:hover{
+  background: purple;
+}
+.card {
+  background: white;
+  padding: 15px;
+  border: 1px solid #ddd;
+  margin: 10px;
+  border-radius: 10px;
+  text-align: center;
+  box-shadow: 10px 14px 10px rgba(255, 6, 255, 0.3);
+}
+  
+.card img {
+  width: 100%;
+  border-radius: 8px;
+}
+
+.card h2 {
+  font-weight: 600;
+}
+
+.price {
+  color: rgb(2, 0, 128);
+  font-weight: 700;
+}
+
+button {
+  padding: 10px;
+  background: #af904c;
+  color: white;
+  border: none;
+  margin-top: 10px;
+  cursor: pointer;
+}
+
+.cart {
+  background: rgb(33, 213, 17);
+  padding: 15px;
+  margin-top: 20px;
+  border-radius: 10px;
+}
+marquee{
+  background-color: purple;
+  color: orangered;
+  font-size: x-large;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 300;
+  font-style: italic;
+}
+
+footer {
+  text-align: center;
+  padding: 5px;
+  background:black;
+  color: white;
+  font-style: italic;
+
+}
+</style>
+
+</head>
+
+<body>
+
+<div class="overlay">
+
+<header>
+    <h1>FRESH VEGTABLES STORE</h1>
+</header>
+<marquee >Get 100rs discount on first order</marquee>
+
+<div class="container">
+
+ 
+  <div class="grid">
+
+    <div class="card">
+      <img src="./images/onion.jpg">
+      <h2>ONION</h2>
+      <p class="price">₹20</p>
+      <button onclick="addToCart('ONION',120)">Add to Cart</button>
+    </div>
+
+    <div class="card">
+  <img src="./images/potato.jpg">
+      <h2>POTATO</h2>
+      <p class="price">₹15</p>
+      <button onclick="addToCart('POTATO',60)">Add to Cart</button>
+    </div>
+
+    <div class="card">
+      <img src="./images/green chilli.avif">
+      <h2>GREEN CHILLI</h2>
+  
+      <p class="price">₹50</p>
+      <button onclick="addToCart('GREEN CHILLI',50)">Add to Cart</button>
+    </div>
+
+    <div class="card">
+      <img src="./images/okra.webp">
+      <h2>OKRA</h2>
+      <p class="price">₹40</p>
+      <button onclick="addToCart('OKRA',40)">Add to Cart</button>
+    </div>
+
+    <div class="card">
+     <img src="./images/brinjal.webp">
+      <h2>BRINJAL</h2>
+      <p class="price">₹60</p>
+      <button onclick="addToCart('BRINJAL',60)">Add to Cart</button>
+    </div>
+
+    <div class="card">
+    <img src="./images/bitter g.jpg">
+      <h2>BITTER GAURD</h2>
+      <p class="price">₹40</p>
+      <button onclick="addToCart('BITTER GAURD',40)">Add to Cart</button>
+    </div>
+
+    <div class="card">
+      <img src="./images/tomato.jpg">
+      <h2>TOMATOES</h2>
+      <p class="price">₹75</p>
+      <button onclick="addToCart('TOMATOES',75)">Add to Cart</button>
+    </div>
+
+    <div class="card">
+      <img src="./images/carrot.jpg">
+      <h2>CARROT</h2>
+      <p class="price">₹30</p>
+      <button onclick="addToCart('CARROT',30)">Add to Cart</button>
+    </div>
+
+  </div>
+
+  <!-- CART -->
+  <div class="cart">
+    <h2>🛒 Cart</h2>
+    <ul id="cartItems"></ul>
+    <h3>Total: ₹<span id="total">0</span></h3>
+  </div>
+
+</div>
+
+<footer>
+  <marquee><p>© THANK YOU🙏</p></marquee>
+</footer>
+
+</div>
+
+<script>
+let total = 0;
+
+function addToCart(item, price) {
+  let list = document.getElementById("cartItems");
+
+  let li = document.createElement("li");
+  li.textContent = item + " - ₹" + price;
+  list.appendChild(li);
+  total += price;
+  document.getElementById("total").textContent = total;
+}
+</script>
+
+</body>
+</html>
